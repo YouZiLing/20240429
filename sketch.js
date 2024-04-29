@@ -14,7 +14,7 @@ function setup() {
   // captureGraphics.hide()
   capture.hide()
   // ---旋鈕的介面
-  var radioElement = createRadio();
+  radioElement = createRadio();
   radioElement.position(width/2-300,20)
   radioElement.option("方塊")
   radioElement.option("圓圈")
