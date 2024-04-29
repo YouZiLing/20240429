@@ -29,7 +29,6 @@ function draw() {
         fill(pixel)
         // rect(x,y,10) //數字越大，格子越大
         rect(x,y,span)
-        pop()
       }
     }
   pop()
