@@ -13,11 +13,19 @@ function setup() {
   captureGraphics.scale(-1,1)
   // captureGraphics.hide()
   capture.hide()
+  // ---旋鈕的介面
+  var radioElement = createRadio();
+  radioElement.position(width/2-300,20)
+  radioElement.option("方塊")
+  radioElement.option("圓圈")
+  radioElement.style("color","#fff")
+  // radioElement.style("font-size","30")
 }
 
 function draw() {
   background(220);
   noStroke()
+  span = 5 + map(mouseX,0,width,0,20) //滑鼠左右改變格子大小(像素)
   //法一：image(capture,width/2-160, height/2-120) //減畫面大小一半
   //法二：
   push()
@@ -27,8 +35,14 @@ function draw() {
       for(var y=0 ; y<captureGraphics.height; y=y+10){
         var pixel = captureGraphics.get(x,y);
         fill(pixel)
-        // rect(x,y,10) //數字越大，格子越大
-        rect(x,y,span)
+        if(radioElement.value()=="方塊"){
+          rect(x,y,span)
+        }
+        if(radioElement.value()=="圓圈"){
+          ellipse(x,y,span)
+        }
+
+      
       }
     }
   pop()
